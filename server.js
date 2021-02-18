@@ -37,7 +37,7 @@ wss.on('request', function(request) {
                 if(!squads[json.data.squad][ws.id]) squads[json.data.squad][ws.id] = ws;
                 console.log('ID [' + ws.id + '] joined [' + ws.squad + ']');
             } else {
-                Object.entries(squads[json.squad]).forEach(([, ws]) => ws.send(message.utf8Data));
+                Object.entries(squads[ws.squad]).forEach(([, ws]) => ws.send(message.utf8Data));
             }
         } catch(err) {
             console.error('Message that threw error was: ')
